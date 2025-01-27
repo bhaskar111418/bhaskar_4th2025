@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class BankingSystem {
+
+    // Method to calculate average account balance
+    public static double calculateAverageBalance(double[] balances) throws ArithmeticException {
+        double totalBalance = 0;
+        int numberOfAccountHolders = balances.length;
+
+        // If there are no account holders, an ArithmeticException will be thrown when dividing by zero
+        if (numberOfAccountHolders == 0) {
+            throw new ArithmeticException("Cannot calculate average. No account holders.");
+        }
+
+        // Summing all balances
+        for (double balance : balances) {
+            totalBalance += balance;
+        }
+
+        return totalBalance / numberOfAccountHolders;
+    }
+
+    // Method to verify transaction ID from the array
+    public static String verifyTransactionID(String[] transactionIDs, int index) throws ArrayIndexOutOfBoundsException {
+        // Checking if the index is valid for the transactionIDs array
+        if (index < 0 || index >= transactionIDs.length) {
+            throw new ArrayIndexOutOfBoundsException("Transaction ID index is out of bounds.");
+        }
+        return transactionIDs[index];  // Return the transaction ID at the given index
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Example balances for account holders
+        double[] accountBalances = {1000.50, 1500.75, 2000.25, 750.80};  // Account balances
+        String[] transactionIDs = {"TX123", "TX124", "TX125", "TX126"};  // Transaction IDs
+
+        // 1. Calculate average account balance with exception handling for division by zero
+        try {
+            double averageBalance = calculateAverageBalance(accountBalances);
+            System.out.println("Average Account Balance: " + averageBalance);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        // 2. Verify a transaction ID with exception handling for invalid index
+        System.out.print("Enter a transaction index to verify (0-3): ");
+        int index = scanner.nextInt();
+
+        try {
+            String transactionID = verifyTransactionID(transactionIDs, index);
+            System.out.println("Transaction ID at index " + index + ": " + transactionID);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        scanner.close();
+    }
+}
