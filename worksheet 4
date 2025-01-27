@@ -58,3 +58,8 @@ public class BankingSystem {
         scanner.close();
     }
 }
+sample output
+The average account balance is: 2000.4166666666667
+Enter transaction ID index to verify: 1
+Transaction ID: TX5678 is valid.
+
