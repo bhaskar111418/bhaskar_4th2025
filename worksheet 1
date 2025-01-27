@@ -32,4 +32,14 @@ public class Main {
         myDog.makeSound();  // Outputs: Woof!
         myCat.makeSound();  // Outputs: Meow!
     }
-}
+} 
+sample output
+Animal sound:
+Some generic animal sound
+
+Dog sound:
+Woof! Woof!
+
+Cat sound:
+Meow! Meow!
+
