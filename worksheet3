@@ -35,3 +35,12 @@ class Employee {
         employee2.DisplayEmployeeDetails();
     }
 }
+sample output
+Employee 1 details:
+Employee Name: Unknown
+Employee Salary: 0.0
+
+Employee 2 details:
+Employee Name: John Doe
+Employee Salary: 50000.0
+
