@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class ArithmeticOperations {
+    public static void main(String[] args) {
+        // Scanner to read user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask user for two numbers as strings
+        System.out.print("Enter the first number: ");
+        String strNum1 = scanner.nextLine();
+        System.out.print("Enter the second number: ");
+        String strNum2 = scanner.nextLine();
+
+        try {
+            // Convert strings to Integer or Double (to handle integers and decimals)
+            Integer num1 = Integer.parseInt(strNum1);
+            Integer num2 = Integer.parseInt(strNum2);
+
+            // Perform arithmetic operations on integers
+            System.out.println("Addition: " + (num1 + num2));
+            System.out.println("Subtraction: " + (num1 - num2));
+            System.out.println("Multiplication: " + (num1 * num2));
+
+            if (num2 != 0) {
+                System.out.println("Division: " + (num1 / num2));
+            } else {
+                System.out.println("Division by zero is not allowed.");
+            }
+            
+        } catch (NumberFormatException e) {
+            try {
+                // If parsing as integers fails, try parsing as doubles
+                Double num1 = Double.parseDouble(strNum1);
+                Double num2 = Double.parseDouble(strNum2);
+
+                // Perform arithmetic operations on doubles
+                System.out.println("Addition: " + (num1 + num2));
+                System.out.println("Subtraction: " + (num1 - num2));
+                System.out.println("Multiplication: " + (num1 * num2));
+
+                if (num2 != 0) {
+                    System.out.println("Division: " + (num1 / num2));
+                } else {
+                    System.out.println("Division by zero is not allowed.");
+                }
+            } catch (NumberFormatException ex) {
+                // If both Integer and Double parsing fails
+                System.out.println("Invalid input! Please enter valid numbers.");
+            }
+        }
+
+        scanner.close();
+    }
+}
